@@ -338,6 +338,7 @@ public final class MainScreen extends javax.swing.JFrame {
 
     private void listMunicipiosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listMunicipiosValueChanged
 
+        // Pegar o index selecionado pelo evento não funciona muito bem 
         try {
             
             final int indexSelected = listMunicipios.getSelectedIndex();
@@ -357,6 +358,7 @@ public final class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_listMunicipiosValueChanged
 
     private void btnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseClicked
+        // Pegar o index selecionado pelo evento não funciona muito bem 
         onEstadoChanged();
     }//GEN-LAST:event_btnSearchMouseClicked
 
