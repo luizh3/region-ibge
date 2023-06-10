@@ -1,0 +1,25 @@
+# Arquivos de compilação
+bin/
+target/
+
+# Arquivos de configuração do IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Arquivos gerados pelo Maven
+target/
+
+# Logs
+*.log
+
+# Arquivos temporários
+*.tmp
+
+# Arquivos de dependências
+lib/
+
+# Arquivos de configuração específicos do sistema operacional
+.DS_Store
+Thumbs.db
