@@ -48,7 +48,7 @@ public final class MainScreen extends javax.swing.JFrame {
         
         jpLoading.setVisible(false);
         
-        ImageIcon icon = new ImageIcon("C:\\Users\\Luiz_\\OneDrive\\Área de Trabalho\\icons8-spinner.gif");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/loadingSpinner.gif") );
         icon.setImage( icon.getImage().getScaledInstance( lblLoading.getWidth(),lblLoading.getHeight() , 1));
         
         lblLoading.setIcon( icon );
@@ -69,10 +69,10 @@ public final class MainScreen extends javax.swing.JFrame {
         IbgeService ibgeService = new IbgeService();
         
         jLblTextLoading.setText("Buscando municipios...");
-
-        try {
-            
-            Thread thread = new Thread( () -> {
+    
+        new Thread( () -> {
+                
+            try {
 
                 jlpInformations.setVisible(false);
                 jpLoading.setVisible(true);
@@ -86,15 +86,12 @@ public final class MainScreen extends javax.swing.JFrame {
                 btnSearch.setEnabled(true);
                 jpLoading.setVisible(false);
                 jlpInformations.setVisible(true);
-
-            } );
                 
-            thread.start();
-            
-        } catch ( Exception e ) {
-            logger.log(Level.SEVERE, "onEstadoChanged, Erro capturado [WHAT] {0}", e.getMessage());
-        }
-        
+            } catch ( Exception e ) {
+                logger.log(Level.SEVERE, "onEstadoChanged, Erro capturado [WHAT] {0}", e.getMessage());
+            }
+
+        } ).start();
 
     }
     
@@ -159,6 +156,7 @@ public final class MainScreen extends javax.swing.JFrame {
         jpLoading = new javax.swing.JPanel();
         lblLoading = new javax.swing.JLabel();
         jLblTextLoading = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -255,6 +253,7 @@ public final class MainScreen extends javax.swing.JFrame {
         jpLoading.setBackground(new java.awt.Color(255, 255, 255));
 
         lblLoading.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLoading.setIcon(new javax.swing.ImageIcon(getClass().getResource("/loadingSpinner.gif"))); // NOI18N
 
         jLblTextLoading.setText("loading...");
 
@@ -272,8 +271,8 @@ public final class MainScreen extends javax.swing.JFrame {
         jpLoadingLayout.setVerticalGroup(
             jpLoadingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpLoadingLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(lblLoading, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                .addGap(34, 34, 34)
+                .addComponent(lblLoading, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLblTextLoading, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
                 .addGap(52, 52, 52))
@@ -304,13 +303,19 @@ public final class MainScreen extends javax.swing.JFrame {
                                 .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 162, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jpMainLayout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jpMainLayout.setVerticalGroup(
             jpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpMainLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jLabel2)
-                .addGap(50, 50, 50)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
                 .addGroup(jpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblUf)
                     .addComponent(cbUfs, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -337,7 +342,7 @@ public final class MainScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void listMunicipiosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listMunicipiosValueChanged
-
+        
         // Pegar o index selecionado pelo evento não funciona muito bem 
         try {
             
@@ -406,6 +411,7 @@ public final class MainScreen extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLayeredPane jlpInformations;
     private javax.swing.JPanel jpLoading;
     private javax.swing.JPanel jpMain;

@@ -7,7 +7,7 @@ package br.com.region.http.endpoint;
 import br.com.region.http.response.municipio.IbgeMunicipiosResponse;
 import br.com.region.http.response.estado.IbgeEstadosResponse;
 
-import static br.com.region.http.request.ClientHttp.*;
+import static br.com.region.http.utils.ClientHttp.*;
 
 /**
  *

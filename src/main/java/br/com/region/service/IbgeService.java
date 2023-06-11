@@ -15,7 +15,6 @@ import br.com.region.http.response.estado.*;
 import br.com.region.http.response.municipio.*;
 import br.com.region.http.endpoint.IbgeEndpoint;
 
-
 /**
  *
  * @author Luiz_
